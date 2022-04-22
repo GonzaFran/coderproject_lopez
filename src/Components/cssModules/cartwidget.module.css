@@ -1,0 +1,27 @@
+.counterContainer {
+    display: inline-block;
+    border-radius: 50%; 
+    background-color: white;
+    width: 20px;
+    height: 20px;
+    text-align: center;
+}
+
+.counter {
+    color: black;
+    font-size: small;
+    font-weight: bold; 
+}
+
+.pokeballButton:hover {
+    animation: rotation 8s infinite linear;
+}
+
+@keyframes rotation {
+    from {
+    transform: rotate(0deg);
+    }
+    to {
+    transform: rotate(359deg);
+    }
+}
