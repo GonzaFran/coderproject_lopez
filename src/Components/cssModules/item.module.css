@@ -1,0 +1,38 @@
+.container {
+    border: 5px solid red;
+    margin:10px 0px;
+    width:25%;
+}
+
+.itemContainer {
+    border: 2px solid white;
+    margin:5px;
+    padding: 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.item {
+    padding-left: 10px;
+}
+
+.pokemon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.pokeball {
+    animation: rotation 8s infinite linear;
+}
+
+@keyframes rotation {
+    from {
+    transform: rotate(0deg);
+    }
+    to {
+    transform: rotate(359deg);
+    }
+}

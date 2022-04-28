@@ -1,0 +1,28 @@
+
+.loading {
+    min-height: 50vh;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    color:white;
+}
+
+.titleContainer {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    margin: 5vh;
+}
+
+.title {
+    color:white;
+    font-size: xx-large;
+}
+
+.listContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
