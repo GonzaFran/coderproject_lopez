@@ -1,0 +1,37 @@
+.DetailContainer {
+    display: flex;
+    flex-direction: row;
+    width: 60%;
+    min-height: 300px;
+    justify-content: space-around;
+    border: 5px solid rgb(150, 43, 43);
+    background-color: red;
+    border-radius: 15px;
+    margin-top: 15vh;
+}
+
+.DetailImage {
+    display: inline-flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.title {
+    font-size: x-large;
+    font-weight: bold;
+}
+
+
+.DetailDescription {
+    width: 70%;
+    margin: 10px 10px;
+    padding: 0px 10px;
+    color: black;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items:flex-start;
+    border: 5px solid rgb(184, 184, 184);
+    border-radius: 15px;
+}
