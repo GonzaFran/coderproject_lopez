@@ -1,0 +1,15 @@
+.container {
+    display: flex;
+    flex-direction: row;
+    justify-content:flex-end;
+    margin: 0px 10px 0px 0px
+}
+.input {
+    min-width: 40px;
+    width: 20%;
+    color: black;
+    background-color: white;
+    text-align: center;
+    border-radius:5px;
+    outline: none
+}
