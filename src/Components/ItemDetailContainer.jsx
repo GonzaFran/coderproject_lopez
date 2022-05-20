@@ -36,7 +36,7 @@ const ItemDetailContainer = () => {
                     type={item.type}
                     image = {item.image} 
                     descripcion={item.description}
-                    precio={"$" +item.price +",00"}/>
+                    precio={item.price}/>
                 
         : <h1 className={style.title}>Cargando...</h1>
         }

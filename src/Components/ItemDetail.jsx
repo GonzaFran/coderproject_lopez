@@ -77,7 +77,7 @@ const ItemDetail = (props) => {
                     <h2> <strong>{Pokemon.id}</strong> </h2>
                     <h3> <strong>TIPO:</strong> {Pokemon.type} </h3>
                     <h2> {Pokemon.descripcion} </h2>
-                    <h2> <strong>PRECIO:</strong> {Pokemon.precio} </h2>
+                    <h2> <strong>PRECIO:</strong> {"$" + Pokemon.precio} </h2>
                 </div>
             </main>
             <div className={style.dimensionsDiv}>

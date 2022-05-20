@@ -15,7 +15,7 @@ const CartContext = ({ children }) => {
     const AddPokemon = (pokemon, cantidad) => {
             let item = {item:pokemon, quantity: cantidad}
             setPokemon(cartPokemon.concat(item))
-            setCount(count + 1)
+            setCount(count + cantidad)
             console.log(item)
     }
 
@@ -27,8 +27,18 @@ const CartContext = ({ children }) => {
         }
     }
 
+    const DeletePokemon = (id, cantidad) => {
+        setPokemon(cartPokemon.filter((pokemon) => pokemon.item.id !== id))
+        setCount(count - cantidad)
+    }
+
+    const DeleteAll = () => {
+        setPokemon([])
+        setCount(0)
+    }
+
     return (
-        <cartCache.Provider value={ {count, cartPokemon, AddPokemon,IsInCart} }>
+        <cartCache.Provider value={ {count, cartPokemon, AddPokemon,IsInCart, DeletePokemon, DeleteAll} }>
             {children}
         </cartCache.Provider>
     )

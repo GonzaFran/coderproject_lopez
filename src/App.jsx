@@ -6,10 +6,11 @@ import NavBar from './Components/NavBar';
 import ItemListContainer from './Components/ItemListContainer';
 import ItemDetailContainer from './Components/ItemDetailContainer';
 import ConstructionPage from './Components/ConstructionPage';
+import Cart from './Components/Cart';
 
 function App() {
 
-  const navigatorList = ['pokemon','pokedex','Contacto','tienda']
+  const navigatorList = ['Pokemon','Pokedex','Contacto','Tienda']
 
   return (
   <>
@@ -22,8 +23,8 @@ function App() {
       
         <Routes>
           <Route path="/" element={<ItemListContainer/>}></Route>
-          <Route path="/pokemon/" element={<ItemListContainer/>}></Route>
-          <Route path="/pokemon/:name" element={<ItemDetailContainer/>}></Route>
+          <Route path="/Pokemon/" element={<ItemListContainer/>}></Route>
+          <Route path="/Pokemon/:name" element={<ItemDetailContainer/>}></Route>
           {
                 navigatorList.filter((element) => 
                 element !== "pokemon")
@@ -33,7 +34,7 @@ function App() {
               )
             })
           }
-          <Route path="/cart" element={<ConstructionPage/>}></Route>
+          <Route path="/cart" element={<Cart/>}></Route>
         </Routes>
       </BrowserRouter>
     </CartContext>
