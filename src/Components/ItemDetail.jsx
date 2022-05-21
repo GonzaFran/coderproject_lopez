@@ -8,7 +8,7 @@ import { Link } from 'react-router-dom';
 
 const ItemDetail = (props) => {
 
-    const {AddPokemon,IsInCart} = useContext(cartCache)
+    const {AddPokemon,IsInCart,pokeImages} = useContext(cartCache)
     const Pokemon = props
     
     const [alertConfig, setAlertConfig] = useState({
@@ -69,7 +69,7 @@ const ItemDetail = (props) => {
         <div className={style.body}>
             <main className= {style.DetailContainer}>
                 <div className={style.DetailImage}>
-                    <img src={props.image} alt={Pokemon.name} width="160px" height="160px" />
+                    <img src={pokeImages(`./${Pokemon.image}.png`)} alt={Pokemon.name} width="160px" height="160px" />
                 </div>
                 <div className={style.DetailDescription}>
                     <h1 className={style.title}>DATOS POKEMON</h1>

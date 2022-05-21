@@ -1,4 +1,5 @@
 import { createContext, useState } from 'react'
+import {doc, getDoc, getFirestore} from 'firebase/firestore'
 
 export const cartCache = createContext({
     count: 0,
@@ -27,10 +28,17 @@ const CartContext = ({ children }) => {
         }
     }
 
+
+    const pokeImageRoute = (ubication,id) => {
+        return  ubication + 'images/' + id + '.png'
+    }
+
     const DeletePokemon = (id, cantidad) => {
         setPokemon(cartPokemon.filter((pokemon) => pokemon.item.id !== id))
         setCount(count - cantidad)
     }
+
+    const pokeImages = require.context("../images",true)
 
     const DeleteAll = () => {
         setPokemon([])
@@ -38,8 +46,12 @@ const CartContext = ({ children }) => {
     }
 
     return (
-        <cartCache.Provider value={ {count, cartPokemon, AddPokemon,IsInCart, DeletePokemon, DeleteAll} }>
-            {children}
+        <cartCache.Provider value={{
+            count, cartPokemon,
+            AddPokemon, IsInCart,
+            DeletePokemon,
+            DeleteAll, pokeImages}}>
+                {children}
         </cartCache.Provider>
     )
 }

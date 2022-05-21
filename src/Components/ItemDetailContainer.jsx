@@ -3,6 +3,7 @@ import style from './cssModules/itemDetailContainer.module.css'
 import ItemDetail from './ItemDetail'
 import iniciales from '../data/pokedata'
 import { useParams } from 'react-router'
+import {doc, getDoc, getFirestore} from 'firebase/firestore'
 
 const ItemDetailContainer = () => {
 
@@ -10,20 +11,19 @@ const ItemDetailContainer = () => {
     
     const [item, setItem] = useState([])
 
-    const GetItems =  (items) => {
-
-        new Promise((resolve,reject) => {
-            setTimeout(() => {
-                resolve(items.find((item) => item.name.toLowerCase() === name.toLowerCase()))
-            },2000)
-        })
-        .then(response =>
-            setItem(response))
-}
-
     useEffect(() => {
-        GetItems(iniciales)
-    },[item])
+      getPokemon()
+    }, [])
+    
+    const getPokemon = () => {
+        const pokedata = getFirestore()
+        const poke = doc(pokedata,'kanto',name.toLowerCase())
+        getDoc(poke).then(response => {
+            if(response.exists) {
+                setItem(response.data())
+            }
+        })
+    }
 
     return (
         <div className={style.loading}>
@@ -32,9 +32,9 @@ const ItemDetailContainer = () => {
         
                 <ItemDetail 
                     name={item.name.toUpperCase()}
-                    id={ "#00" + item.id}
+                    id={ "#" + item.id}
                     type={item.type}
-                    image = {item.image} 
+                    image = {item.id} 
                     descripcion={item.description}
                     precio={item.price}/>
                 

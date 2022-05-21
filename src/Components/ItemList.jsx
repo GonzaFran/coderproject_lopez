@@ -1,29 +1,28 @@
-import {useState,useEffect} from 'react'
+import {useState,useEffect,useContext} from 'react'
 import iniciales from '../data/pokedata.js'
 import Item from './Item.jsx';
 import style from './cssModules/listItem.module.css'
 import { Link } from 'react-router-dom';
+import {getDocs, getFirestore, collection} from 'firebase/firestore'
 
 const ItemList = () => {
     const [pokemon,setPokemon] = useState([])
 
-
-    const getPokemons = () => {
-
-        new Promise((resolve,reject) => {
-            setTimeout(() => {
-                resolve(iniciales)
-            },2000)
-        })
-        .then(response => {
-            setPokemon(response)})
-        }
-
     useEffect(() => {
-        getPokemons()
-        },[])
+      getPokemonData()
+    }, [])
+    
+    const getPokemonData = () => {
+        const pokedata = getFirestore()
+        const pokemonCollection = collection(pokedata,'kanto')
+        getDocs(pokemonCollection).then(snapshot => {
+            if(snapshot.size > 0 ) {
+               const poke = snapshot.docs.map(doc => ({id:doc.id, ...doc.data()}))
+               setPokemon(poke)
+            }
+        })
+    }
 
-        
     return (
         pokemon.length === 0 ?
         <>
@@ -45,7 +44,7 @@ const ItemList = () => {
                         name={pokemon.name}
                         description={pokemon.description}
                         price={pokemon.price}
-                        image={pokemon.image}/>
+                        image={pokemon.id}/>
                 </Link>
                     )}
             </div>
