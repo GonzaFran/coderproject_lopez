@@ -6,19 +6,12 @@ import { Link } from 'react-router-dom';
 
 const Cart = () => {
 
-    const {cartPokemon, DeletePokemon, DeleteAll} = useContext(cartCache)
+    const {cartPokemon, DeletePokemon, DeleteAll, getTotal} = useContext(cartCache)
 
     const verification = (element) => element !== 0
 
-    const price = verification(cartPokemon.length) ? cartPokemon.map((pokemon) => pokemon.item.precio * pokemon.quantity) : []
-    
-    let totally = 0
-
-    for(let index = 0; index < price.length; index++) { 
-        totally = totally + price[index]
-    }
-
     return(
+        <>
         <main className={styles.containerCart}>
             <div className={styles.titleContainer}>
                 <h1 className={styles.title}>Carrito</h1>
@@ -44,7 +37,7 @@ const Cart = () => {
                     verification(cartPokemon.length) ? 
                     cartPokemon.map((pokemon) => {
                         return (
-                        <section className={styles.itemTableContainer}>
+                        <section className={styles.itemTableContainer} key={`sectionCart + ${pokemon.item.name}`}>
                                     <h1 className={styles.itemInTable}> {pokemon.item.name}</h1>
                                     <h1 className={styles.itemInTable}>{pokemon.quantity}</h1>
                                     <h1 className={styles.itemInTable}>{"$" + pokemon.item.precio}</h1>
@@ -54,17 +47,15 @@ const Cart = () => {
                                     
                         </section>
                         )
-                    })
-                            
-                                    : 
-                                    <h1 className={'text-slate-200'} style={{padding:'15vh', fontSize:'3vh'}}>
-                                        No hay nada que mostrar
-                                    </h1>
+                    })  : 
+                        <h1 className={'text-slate-200'} style={{padding:'15vh', fontSize:'3vh'}}>
+                            No hay nada que mostrar
+                        </h1>
                             }
             {
             verification(cartPokemon.length) ?
                 <div className={styles.finalPrice}>
-                    <h1 className={styles.finalPriceText}>Total: {verification(totally) ? "$" + totally : "$0"}</h1>
+                    <h1 className={styles.finalPriceText}>Total: {verification(cartPokemon.length) ? "$" + getTotal() : "$0"}</h1>
                 </div>
             : 
                 <Link to="/" style={{marginBottom:"5vh"}}>
@@ -73,7 +64,17 @@ const Cart = () => {
             }
                 
             </section>
+
+            {
+                verification(cartPokemon.length) && 
+                <Link to="/checkout" className={styles.FinishBuy}>
+                    <ButtonComponent title='Realizar compra'/>
+                </Link>
+            }
+            
         </main>
+        
+        </>
     )
 }
 

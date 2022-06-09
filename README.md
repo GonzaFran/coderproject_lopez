@@ -9,4 +9,10 @@ Hasta el momento de la primer entrega, sólo cuenta con los iniciales de la regi
 
 Actualmente se utilizan imagenes y datos locales para renderizar en los componentes de muestra, tengo pensado utilizar la "pokeapi", aunque esto quedará sujeto a tiempos y disponibilidad para realizarlo.
 
+<h2><Strong>Librerías de apoyo</Strong></h2>
+
+SweetAlert2: https://sweetalert2.github.io/
+
+Es una librería popular que simplifica la manera para mostrar mensajes de alerta de una manera más amigable y personalizada para el usuario. A nivel experiencia de usuario me parece más significativa ya que al dispararse se posiciona en el centro de la pantalla.
+
 //<>

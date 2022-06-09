@@ -1,0 +1,108 @@
+.checkOutContainer {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    background-color: #212121;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.TitleContainer {
+    width: 90%;
+    margin: 5vh 0;
+}
+
+.NegativeContainer {
+    display: flex;
+    height: 100%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.TitleText {
+    color:white;
+    font-size: xx-large;
+    font-weight: 700;
+}
+
+.subTitleText {
+    color:white;
+    font-size: large;
+    font-weight: 700;
+}
+
+.DetailContainer {
+    background-color: black;
+    border: 1px solid white;
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.DetailPokemon {
+    display: flex;
+    flex-direction: row;
+    justify-content:space-evenly;
+    align-items: center;
+    width: 100%;
+    border: 1px solid white;
+    text-align:center
+}
+
+.DetailText {
+    color: white;
+    font-size:medium;
+    width: 100%;
+}
+
+.TotalPrice {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.FormContainer {
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.FormSubtitles {
+    color:white;
+    text-decoration: underline white;
+    margin-bottom: 5px;
+}
+
+.InputForm {
+    background-color: black;
+    padding: 10px;
+    border-radius: 10px;
+    border: 1px solid red;
+    color: white;
+}
+
+.InputForm:focus {
+    outline: none;
+    border: 3px solid red;
+}
+
+.ButtonBuy {
+    width: 80%;
+    margin: 5vh 0; 
+    display: flex;
+    flex-direction: row-reverse;
+}
+
+.correcto {
+    color: greenyellow
+}
+
+.incorrecto {
+    color: red;
+}

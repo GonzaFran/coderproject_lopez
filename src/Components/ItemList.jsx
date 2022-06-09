@@ -1,4 +1,4 @@
-import {useState,useEffect,useContext} from 'react'
+import {useState,useEffect} from 'react'
 import iniciales from '../data/pokedata.js'
 import Item from './Item.jsx';
 import style from './cssModules/listItem.module.css'
@@ -38,11 +38,10 @@ const ItemList = () => {
             
             <div className={style.listContainer}>
                 {pokemon.map((pokemon) => 
-                <Link key ={pokemon.id} to={`/pokemon/${pokemon.name}`} style={{width:'100%'}}>
+                <Link key ={pokemon.id} to={`/pokemon/${pokemon.name}`} style={styles.link}>
                     <Item 
                         id={pokemon.id}
                         name={pokemon.name}
-                        description={pokemon.description}
                         price={pokemon.price}
                         image={pokemon.id}/>
                 </Link>
@@ -51,6 +50,14 @@ const ItemList = () => {
             
         </>             
     )
+}
+
+const styles = {
+    link:{
+        width:'30%',
+        display:'flex',
+        justifyContent:'center',
+    }
 }
 
 export default ItemList;

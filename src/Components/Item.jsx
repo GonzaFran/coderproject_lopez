@@ -3,7 +3,7 @@ import pokeball from './iconFolder/pokeball.svg'
 import style from './cssModules/item.module.css'
 import { cartCache } from '../Context/cartContext'
 
-const Item = ({id,name,description,price,image}) => {
+const Item = ({id,name,price,image}) => {
 
     const {pokeImages} = useContext(cartCache)
     
@@ -19,7 +19,6 @@ const Item = ({id,name,description,price,image}) => {
                     </div>
                     <h3 style={{color:'white'}}> <strong>#{id}</strong> </h3>
                     <h1 style={{color:'white'}}>{name}</h1>
-                    <h2 style={{color:'white'}}>{description}</h2>  
                     <h3 style={{color:'white',fontWeight:'bold'}}> ${price},00</h3>
                 </div>               
             </div>

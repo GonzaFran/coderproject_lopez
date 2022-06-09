@@ -17,7 +17,7 @@ const CartContext = ({ children }) => {
             let item = {item:pokemon, quantity: cantidad}
             setPokemon(cartPokemon.concat(item))
             setCount(count + cantidad)
-            console.log(item)
+            console.log('se añadió: ',item)
     }
 
     const IsInCart = (pokemon) => {
@@ -28,14 +28,29 @@ const CartContext = ({ children }) => {
         }
     }
 
+    const verification = (element) => element !== 0
 
-    const pokeImageRoute = (ubication,id) => {
-        return  ubication + 'images/' + id + '.png'
+    const getTotal = () => {   
+        const price = verification(cartPokemon.length) ? cartPokemon.map((pokemon) => pokemon.item.precio * pokemon.quantity) : []
+    
+        let totally = 0
+    
+        for(let index = 0; index < price.length; index++) { 
+            totally = totally + price[index]
+        }
+        return totally    
     }
 
     const DeletePokemon = (id, cantidad) => {
         setPokemon(cartPokemon.filter((pokemon) => pokemon.item.id !== id))
         setCount(count - cantidad)
+    }
+
+    const BuyFinished = (finish) => {
+        if(finish) {
+            setPokemon([])
+            setCount(0)
+        }
     }
 
     const pokeImages = require.context("../images",true)
@@ -47,9 +62,10 @@ const CartContext = ({ children }) => {
 
     return (
         <cartCache.Provider value={{
-            count, cartPokemon,
+            count, cartPokemon, getTotal,
             AddPokemon, IsInCart,
-            DeletePokemon,
+            DeletePokemon,verification,
+            BuyFinished,
             DeleteAll, pokeImages}}>
                 {children}
         </cartCache.Provider>

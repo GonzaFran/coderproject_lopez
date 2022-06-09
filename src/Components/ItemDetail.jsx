@@ -86,7 +86,7 @@ const ItemDetail = (props) => {
                     <>
                     <ButtonComponent action={() => {setCloseBuy(false)}} title="Seguir comprando"/>
                     <Link to="/cart">
-                        <ButtonComponent title="Finalizar compra"/>
+                        <ButtonComponent title="Ir al carrito"/>
                     </Link>   
                     </>
                     :
